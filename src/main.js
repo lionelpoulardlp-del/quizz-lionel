@@ -1,14 +1,24 @@
 import "./style.css";
 import quiz from "./quiz-femmes-scientifiques.json";
 
-const titleElement = document.querySelector("#start-screen h1");
-const startButton = document.querySelector("#start-button");
-const startScreen = document.querySelector("#start-screen");
-const questionScreen = document.querySelector("#question-screen");
+const bouton = document.createElement("button");
 
-titleElement.innerText = quiz.title;
+bouton.textContent = "Start Quiz";
+bouton.id = "start-button";
 
-startButton.addEventListener("click", () => {
-  startScreen.classList.add("hidden");
-  questionScreen.classList.remove("hidden");
+bouton.addEventListener("click", () => {
+  alert("Quiz Started!");
+  document.body.style.display = "none";
 });
+
+document.body.appendChild(bouton);
+
+const startScreen = document.createElement("div");
+startScreen.id = "start-screen";
+document.body.appendChild(startScreen);
+
+const header = document.createElement("header");
+const headerTitle = document.createElement("h1");
+headerTitle.textContent = quiz.title;
+header.appendChild(headerTitle);
+app.appendChild(header);
