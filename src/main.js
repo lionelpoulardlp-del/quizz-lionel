@@ -1,7 +1,7 @@
 import "./style.css";
 import quiz from "./quiz-femmes-scientifiques.json";
-
 import { initQuiz } from "./quiz.js";
 
-initQuiz(quiz);
+const app = document.querySelector("#app");
 
+initQuiz(app, quiz);
