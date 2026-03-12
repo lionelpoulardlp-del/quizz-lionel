@@ -1,21 +1,22 @@
-import { StartScreen, displayQuestion, EndScreen } from "./dom.js";
-import { resetScore, addPoint, getScore } from "./score.js";
+import { StartScreen, displayQuestion, EndScreen } from "./dom.js";   // Import des fonctions pour afficher les différentes parties du quiz
+import { resetScore, addPoint, getScore } from "./score.js";          // Import des fonctions pour gérer le score du quiz
 
-let questionIndex = 0;
+let questionIndex = 0;  // Variable globale pour suivre l'index de la question actuelle dans le quiz
 
-export function initQuiz(app, quiz) {
-  Start(app, quiz);
+export function initQuiz(app, quiz) {   // Fonction d'initialisation du quiz, qui affiche l'écran de démarrage et prépare les événements pour démarrer le quiz
+  Start(app, quiz);  // Appelle la fonction Start pour afficher l'écran de démarrage du quiz
 }
 
-function Start(app, quiz) {
-  StartScreen(app, quiz.title);
+function Start(app, quiz) {   // Fonction pour afficher l'écran de démarrage du quiz et configurer l'événement pour démarrer le quiz lorsque le bouton est cliqué
+  StartScreen(app, quiz.title);  // Affiche l'écran de démarrage du quiz en utilisant la fonction StartScreen et en passant le titre du quiz
 
-  const startButton = document.querySelector("#start-button");
+  const startButton = document.querySelector("#start-button");  // Sélectionne le bouton de démarrage dans l'écran de démarrage du quiz
 
-  startButton.addEventListener("click", () => {
-    questionIndex = 0;
-    resetScore();
-    question(app, quiz);
+  startButton.addEventListener("click", () => {    // Ajoute un événement de clic au bouton de démarrage pour lancer le quiz lorsque l'utilisateur clique dessus
+    questionIndex = 0;   // Réinitialise l'index de la question à zéro pour commencer le quiz depuis la première question
+    resetScore();  // Réinitialise le score à zéro en appelant la fonction resetScore pour s'assurer que le score est correct au début du quiz
+    question(app, quiz);   // Appelle la fonction question pour afficher la première question du quiz en passant l'élément "app",
+    //  et les données du quiz
   });
 }
 
@@ -44,9 +45,7 @@ function question(app, quiz) {
         addPoint();
       } else {
         messageDiv.innerText =
-          "Mauvaise réponse, la bonne réponse est " +
-          question.options[question.correctIndex] +
-          ".";
+          "Mauvaise réponse, la bonne réponse est " + question.options[question.correctIndex] +  ".";
       }
 
       nextButton.classList.remove("hidden");
