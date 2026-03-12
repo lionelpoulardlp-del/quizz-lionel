@@ -1,4 +1,4 @@
-export function renderStartScreen(app, quizTitle) {
+export function StartScreen(app, quizTitle) {
 
   app.innerHTML = "";
 
@@ -19,7 +19,7 @@ export function renderStartScreen(app, quizTitle) {
 }
 
 
-export function renderQuestionScreen(app, quizTitle, question) {
+export function displayQuestion(app, quizTitle, question) {
 
   app.innerHTML = "";
 
@@ -60,7 +60,7 @@ export function renderQuestionScreen(app, quizTitle, question) {
 }
 
 
-export function renderEndScreen(app, endTitle, score, totalQuestions) {
+export function EndScreen(app, endTitle, score, totalQuestions) {
 
   app.innerHTML = "";
 
