@@ -17,35 +17,39 @@ export function StartScreen(app, quizTitle) {
   app.appendChild(section);
 }
 
+//-------- Fonctions pour gérer mes questions et mon écran de fin --------
+
 export function displayQuestion(app, quizTitle, question) {
-  app.innerHTML = "";
+app.innerHTML = "";
 
-  const section = document.createElement("section");
-  section.className = "screen";
+const section = document.createElement("section");
+section.className = "screen";
 
-  const header = document.createElement("header");
+const header = document.createElement("header");
 
-  const h1 = document.createElement("h1");
+const h1 = document.createElement("h1");
   h1.textContent = quizTitle;
 
-  header.appendChild(h1);
+header.appendChild(h1);
 
-  const questionText = document.createElement("div");
-  questionText.id = "question-text";
-  questionText.textContent = question.question;
+const questionText = document.createElement("div");
+questionText.id = "question-text";
+questionText.textContent = question.question;
 
-  const answers = document.createElement("div");
-  answers.id = "answers";
-  answers.className = "answers";
+const answers = document.createElement("div");
+answers.id = "answers";
+answers.className = "answers";
 
-  const message = document.createElement("div");
-  message.id = "message";
-  message.className = "message";
+const message = document.createElement("div");
+message.id = "message";
+message.className = "message";
 
-  const nextButton = document.createElement("button");
-  nextButton.id = "next-button";
-  nextButton.className = "hidden";
-  nextButton.textContent = "Question suivante";
+const nextButton = document.createElement("button");
+ nextButton.id = "next-button";
+nextButton.className = "hidden";
+nextButton.textContent = "Question suivante";
+
+  //J ajoute des elements a mon écran de question
 
   section.appendChild(header);
   section.appendChild(questionText);
@@ -56,30 +60,33 @@ export function displayQuestion(app, quizTitle, question) {
   app.appendChild(section);
 }
 
+//-------- Fonction pour gérer mon écran de fin --------
+
 export function EndScreen(app, endTitle, score, totalQuestions) {
-  app.innerHTML = "";
+app.innerHTML = "";
 
-  const section = document.createElement("section");
-  section.className = "screen";
+const section = document.createElement("section");
+section.className = "screen";
 
-  const h1 = document.createElement("h1");
-  h1.textContent = endTitle;
+const h1 = document.createElement("h1");
+h1.textContent = endTitle;
+const h2 = document.createElement("h2");
+h2.textContent = "Ton score est de";
 
-  const h2 = document.createElement("h2");
-  h2.textContent = "Ton score est de";
+const scoreDiv = document.createElement("div");
+scoreDiv.className = "score";
+scoreDiv.textContent = score + " / " + totalQuestions;
 
-  const scoreDiv = document.createElement("div");
-  scoreDiv.className = "score";
-  scoreDiv.textContent = score + " / " + totalQuestions;
+const button = document.createElement("button");
+button.id = "restart-button";
+button.textContent = "Recommencer le quiz";
 
-  const button = document.createElement("button");
-  button.id = "restart-button";
-  button.textContent = "Recommencer le quiz";
+  // J ajoute des éléments à mon écran de fin
 
-  section.appendChild(h1);
-  section.appendChild(h2);
-  section.appendChild(scoreDiv);
-  section.appendChild(button);
+section.appendChild(h1);
+section.appendChild(h2);
+section.appendChild(scoreDiv);
+section.appendChild(button);
 
-  app.appendChild(section);
+app.appendChild(section);
 }
