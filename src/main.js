@@ -5,4 +5,5 @@ import { initQuiz } from "./quizz.js";            // Import de la fonction d'ini
 
 const app = document.querySelector("#app");     // Sélection de l'élément HTML avec l'id "app"
 
-initQuiz(app, quiz);                // Initialisation du quiz en passant l'élément "app" et les données du quiz
+initQuiz(app, quiz);                // Je lance le quiz en transmettant deux choses : le conteneur HTML et
+//les données.
